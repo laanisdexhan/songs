@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --pink-light: #f8d8e7;
+    --pink: #e9a9c5;
+    --pink-dark: #c76f9a;
+    --pink-shadow: #a94e7b;
+    --screen: #211820;
+    --screen-pink: #9c5f7d;
+    --white: #fff8fc;
+    --gray: #b9aab2;
+    --dark: #21131c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+    font-family: 'VT323', monospace;
+    background:
+        radial-gradient(circle at 30% 20%, #fff 0 4%, transparent 5%),
+        linear-gradient(135deg, #f3d6e4, #d88cad 48%, #b9678e);
+    color: var(--dark);
+}
+
+.player {
+    width: min(900px, 100%);
+    padding: 28px;
+    border-radius: 34px;
+    background:
+        linear-gradient(145deg, #ffd9e8 0%, #eda9c6 40%, #d988ac 100%);
+    border: 3px solid #e8aec8;
+    box-shadow:
+        inset 0 4px 0 rgba(255,255,255,.85),
+        inset 0 -7px 12px rgba(125, 47, 84, .3),
+        0 25px 60px rgba(81, 22, 51, .35);
+}
+
+.screen-area {
+    position: relative;
+}
+
+.screen {
+    min-height: 300px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 25px;
+    border: 7px solid #100c0f;
+    border-radius: 15px;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.12), transparent 30%),
+        linear-gradient(110deg, #3a2832, #a36080 50%, #563341);
+    box-shadow:
+        inset 0 0 0 2px #5c4750,
+        inset 0 0 30px rgba(0,0,0,.7),
+        0 5px 8px rgba(91, 38, 62, .35);
+}
+
+.cover-wrap {
+    flex: 0 0 220px;
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 4px solid #eee;
+    background: #222;
+    box-shadow: 0 5px 14px rgba(0,0,0,.5);
+}
+
+.cover-wrap img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.song-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.status {
+    color: #f5b9d3;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.song-info h1 {
+    margin: 12px 0 2px;
+    color: white;
+    font-size: clamp(35px, 6vw, 62px);
+    line-height: .95;
+    text-shadow: 2px 2px #432333;
+    word-wrap: break-word;
+}
+
+.song-info p {
+    margin: 4px 0 25px;
+    color: #e6dce1;
+    font-size: 27px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.slider {
+    width: 100%;
+    accent-color: #efb0ca;
+    cursor: pointer;
+}
+
+.progress-slider {
+    height: 24px;
+}
+
+.screen-decoration {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 10px 0;
+    color: #7d3e5d;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.controls-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 25px 15px 10px;
+}
+
+.wheel {
+    position: relative;
+    width: 225px;
+    height: 225px;
+    flex: 0 0 225px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #fffafd, #edd5e0);
+    border: 2px solid #d2aabb;
+    box-shadow:
+        inset 0 8px 12px rgba(255,255,255,.8),
+        inset 0 -8px 14px rgba(137, 64, 96, .15),
+        0 5px 10px rgba(108, 43, 74, .2);
+}
+
+.wheel::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f8ddeb, #e8b6ce);
+    border: 1px solid #d29bb5;
+    box-shadow: inset 0 4px 8px rgba(255,255,255,.8);
+    pointer-events: none;
+}
+
+.wheel-button,
+.play-button {
+    position: absolute;
+    z-index: 2;
+    border: 0;
+    background: transparent;
+    color: #d28dab;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.wheel-button {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 26px;
+    padding: 15px;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.play-button {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #c97e9e;
+}
+
+.wheel-button:hover,
+.play-button:hover {
+    color: #a94e7b;
+    transform: translateY(-50%) scale(1.12);
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+.wheel-label {
+    position: absolute;
+    z-index: 3;
+    color: #d395ae;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu-label {
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center-label {
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    opacity: .6;
+}
+
+.volume-box {
+    flex: 1;
+    max-width: 390px;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.25);
+    border: 1px solid rgba(255,255,255,.45);
+    box-shadow: inset 0 2px 5px rgba(255,255,255,.4);
+}
+
+.volume-icon,
+#volume-value {
+    display: inline-block;
+    color: #8b3d60;
+    font-size: 21px;
+    margin-bottom: 7px;
+}
+
+#volume-value {
+    float: right;
+}
+
+.volume-slider {
+    display: block;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: #8a3e60;
+    border-top: 2px solid rgba(125, 55, 85, .18);
+    padding: 15px 8px 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #8e3b60;
+    outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+    .player {
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .screen {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .cover-wrap {
+        width: 180px;
+        height: 180px;
+        flex-basis: 180px;
+    }
+
+    .song-info {
+        width: 100%;
+    }
+
+    .song-info h1 {
+        font-size: 42px;
+    }
+
+    .controls-area {
+        flex-direction: column;
+    }
+
+    .wheel {
+        width: 205px;
+        height: 205px;
+        flex-basis: 205px;
+    }
+
+    .volume-box {
+        width: 100%;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+}

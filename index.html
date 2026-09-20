@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink MP3 Player</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main class="player">
+        <!-- Pantalla -->
+        <section class="screen-area">
+            <div class="screen">
+                <div class="cover-wrap">
+                    <img id="cover" src="assets/portada1.jpg" alt="Portada de la canción">
+                </div>
+
+                <div class="song-info">
+                    <span class="status" id="status">● READY</span>
+                    <h1 id="song-title">Canción 1</h1>
+                    <p id="artist">Artista 1</p>
+
+                    <div class="progress-info">
+                        <span id="current-time">0:00</span>
+                        <span id="total-time">0:00</span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="progress"
+                        class="slider progress-slider"
+                        min="0"
+                        max="100"
+                        value="0"
+                        aria-label="Progreso de la canción"
+                    >
+                </div>
+            </div>
+
+            <div class="screen-decoration">
+                <span>MP3 PLAYER</span>
+                <span id="track-number">01 / 03</span>
+            </div>
+        </section>
+
+        <!-- Controles -->
+        <section class="controls-area">
+            <div class="wheel">
+                <button id="previous" class="wheel-button prev" aria-label="Canción anterior">|◀</button>
+
+                <button id="play-pause" class="play-button" aria-label="Reproducir">
+                    ▶
+                </button>
+
+                <button id="next" class="wheel-button next" aria-label="Canción siguiente">▶|</button>
+
+                <span class="wheel-label menu-label">MENU</span>
+                <span class="wheel-label center-label">SELECT</span>
+            </div>
+
+            <div class="volume-box">
+                <span class="volume-icon">VOL</span>
+                <input
+                    type="range"
+                    id="volume"
+                    class="slider volume-slider"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="0.8"
+                    aria-label="Volumen"
+                >
+                <span id="volume-value">80%</span>
+            </div>
+        </section>
+
+        <footer>
+            <span>◀ PREV</span>
+            <span>PLAY / PAUSE</span>
+            <span>NEXT ▶</span>
+        </footer>
+    </main>
+
+    <audio id="audio"></audio>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
